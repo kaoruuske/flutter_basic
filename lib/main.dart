@@ -12,12 +12,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ), //ThemeData
       home: HelloPage('Hello World')
-//      home: Scaffold(
-//        appBar: AppBar(title: Text('Hello World'),
-//        ), //AppBar
-//          body: Text('헬로 월드', style: TextStyle(fontSize: 30),
-//          )), //Text, Scaffold
-    ); //MaterialApp
   }
 }
 
@@ -32,12 +26,36 @@ class HelloPage extends StatefulWidget {
 }
 
 class _HelloPageState extends State<HelloPage> {
+  String _message = 'Hello World';
+  int _counter = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+          child : Icon(Icons.add),
+          onPressed: _changeMessage),
       appBar: AppBar(
           title: Text(widget.title),
       ), //appbar
-        body: Text(widget.title, style: TextStyle(fontSize: 30)));
+        body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(_message, style: TextStyle(fontSize: 30)),
+                Text('$_counter', style: TextStyle(fontSize: 30)),
+              ],//widget
+            )//column
+        )// center
+    );
+
+  }
+
+  void _changeMessage(){
+    setState(() {
+      _message = '헬로 월드';
+      _counter ++;
+
+    });
   }
 }

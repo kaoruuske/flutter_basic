@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ), //ThemeData
-      home: HelloPage('Hello World')
+      home: HelloPage('Hello World'));
   }
 }
 
